@@ -1,0 +1,102 @@
+/*
+    The following variables can be overridden
+
+    --alx-menu-l1-background
+    --alx-menu-l1-background-hover
+    --alx-menu-l1-link-color
+    --alx-menu-l1-border-color
+    --alx-menu-l1-fontsize
+            
+    --alx-menu-l2-background
+    --alx-menu-l2-link-color
+    --alx-menu-l2-border-color
+    --alx-menu-l2-fontsize
+    
+    --alx-menu-lx-background
+    --alx-menu-lx-link-color
+    --alx-menu-lx-link-color-hover
+    --alx-menu-lx-fontsize
+*/
+
+
+a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  background-color: var(--alx-menu-lx-background, #fff);
+  color: var(--alx-menu-lx-link-color, #1d2b42);
+  font-size: var(--alx-menu-lx-fontsize, 1rem);
+
+  &[aria-haspopup="true"]::after {
+    float: right;
+    width: 5px;
+    height: 5px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-style: solid;
+    border-color: var(--alx-menu-lx-link-color, #1d2b42);
+    transform-origin: 75% 75%;
+    transform: rotate(-45deg);
+    transition: transform 0.1s ease;
+    content: "";
+    margin-left: 8px;
+    margin-right: 3px;
+    margin-top:3px;
+  }
+
+  &[aria-expanded="true"]::after {
+    transform: rotate(45deg);
+    margin-right: 6px;
+    margin-top: 3px;
+  }
+
+  &:hover {
+    color: var(--alx-menu-lx-link-color-hover, #007acc);
+  }
+}
+
+
+:host([depth="1"]) {
+  > a {
+    background-color: var(--alx-menu-l1-background, #797979);
+    color: var(--alx-menu-l1-link-color, #fff);
+    border-bottom: 1px solid var(--alx-menu-l1-border-color, #1d2b42);
+    font-size: var(--alx-menu-l1-fontsize, 1rem);
+
+    &::after {
+      border-color: #fff;
+    }
+
+    &:hover {
+      background-color: var(--alx-menu-l1-background-hover, #000);
+    }
+  }
+}
+
+:host([depth="2"]) {
+  > a {
+    background-color: var(--alx-menu-l2-background, #fff);
+    color: var(--alx-menu-l2-link-color, #1d2b42);
+    border-bottom: 1px solid var(--alx-menu-l2-border-color, #ccc7c1);
+    font-size: var(--alx-menu-l2-fontsize, 1rem);
+
+    &:hover {
+      color: var(--alx-menu-lx-link-color-hover, #007acc);
+    }
+  }
+}
+
+.alx-menu-children {
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.2s ease;
+}
+
+a[aria-expanded="true"] ~ .alx-menu-children {
+  opacity: 1;
+  max-height: 1000px;
+  height: auto;
+}

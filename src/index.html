@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <style>
+      :root {
+        --alx-menu-l1-background: #007acc;
+        --alx-menu-l1-background-hover: #004471;
+      }
+      body {
+        background-color: #b0e0e6;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      nav {
+        width: 200px;
+      }
+    </style>
+    <script type="module" src="/build/alx-menu.esm.js"></script>
+    <script nomodule src="/build/alx-menu.js"></script>
+  </head>
+
+  <body>
+    <h1>Sample Menu</h1>
+    <nav aria-label="Sample Menu">
+      <alx-nav-item url="about.html" label="About us"></alx-nav-item>
+      <alx-nav-item label="Products">
+        <alx-nav-item label="Categories">
+          <alx-nav-item url="kitchen.html" label="Kitchen"></alx-nav-item>
+          <alx-nav-item url="bedroom.html" label="Bedroom"></alx-nav-item>
+          <alx-nav-item url="bathroom.html" label="Bathroom">
+            <alx-nav-item url="bathroom.html" label="Bathroom"> </alx-nav-item>
+          </alx-nav-item>
+        </alx-nav-item>
+        <alx-nav-item url="compare.html" label="Compare"></alx-nav-item>
+      </alx-nav-item>
+      <alx-nav-item label="Account">
+        <alx-nav-item url="profile.html" label="My Profile"></alx-nav-item>
+        <alx-nav-item url="payment.html" label="Payment Methods"></alx-nav-item>
+        <alx-nav-item url="orders.html" label="Order History"></alx-nav-item>
+      </alx-nav-item>
+      <alx-nav-item url="cart.html" label="Cart"></alx-nav-item>
+    </nav>
+  </body>
+</html>
